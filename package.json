@@ -4,6 +4,9 @@
   "description": "Adonis gRPC client provider for easily communicate with gRPC services",
   "main": "build/providers/GrpcConsumerProvider.js",
   "typings": "./build/adonis-typings/index.d.ts",
+  "bin": {
+    "build-proto": "./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js"
+  },
   "files": [
     "build/adonis-typings",
     "build/providers",
