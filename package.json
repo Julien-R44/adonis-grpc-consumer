@@ -1,0 +1,46 @@
+{
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "lint": "eslint . --ext=.ts",
+    "pretest": "npm run lint",
+    "test": "node .bin/test.js",
+    "clean": "del build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "build": "npm run compile",
+    "prepublishOnly": "npm run build"
+  },
+  "name": "adonis5-grpc-consumer",
+  "version": "0.0.1",
+  "description": "Adonis gRPC client provider for easily communicate with gRPC services",
+  "main": "index.js",
+  "keywords": [
+    "adonis5",
+    "grpc"
+  ],
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^5.0.2",
+    "@adonisjs/require-ts": "^2.0.8",
+    "@types/node": "^17.0.2",
+    "del-cli": "^4.0.1",
+    "eslint": "^8.5.0",
+    "eslint-plugin-adonis": "^2.1.0",
+    "japa": "^4.0.0",
+    "mrm": "^3.0.10",
+    "typescript": "^4.5.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:adonis/typescriptPackage"
+    ]
+  },
+  "eslintIgnore": [
+    "build"
+  ],
+  "files": [
+    "build/src",
+    "build/index.d.ts",
+    "build/index.js"
+  ]
+}
