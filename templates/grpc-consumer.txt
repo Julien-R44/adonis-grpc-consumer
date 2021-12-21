@@ -1,0 +1,29 @@
+import { GrpcConsumerConfig } from '@ioc:Adonis/Addons/GrpcConsumer'
+
+let grpcConfig: GrpcConsumerConfig = {
+  /*
+  |--------------------------------------------------------------------------
+  | Will give some output to the console about gRPC connections
+  |--------------------------------------------------------------------------
+  */
+  verbose: false,
+
+  /*
+  |--------------------------------------------------------------------------
+  | Here you can define the gRPC services you want to consume.
+  |--------------------------------------------------------------------------
+  */
+  clients: [
+    // {
+    //   name: 'MY_SERVICE',
+    //   options: {
+    //     package: 'my_service',
+    //     serviceName: 'MyService',
+    //     protoPath: path.join(__dirname + '/../proto/MyService.proto'),
+    //     url: '127.0.0.1:4545',
+    //   },
+    // },
+  ],
+}
+
+export default grpcConfig
