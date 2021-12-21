@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://i.imgur.com/iiuiVlq.png" width="300px" />  
+  <img src="https://i.imgur.com/iiuiVlq.png" width="250px" />  
   <br/>
   <h3>Adonis gRPC Consumer</h3>
   <p>Communicate easily with gRPC services in Adonis</p>
