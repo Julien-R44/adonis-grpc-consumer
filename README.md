@@ -72,12 +72,11 @@ Try to launch your application, in case everything went well, you should see the
 To use our service and call the `SendMessage` function defined in the protobuf file, we do the following: 
 
 ```typescript
-import GrpcConsumer from '@ioc:Adonis/Addons/GrpcConsumer'
+import GrpcConsumer, { grpc } from '@ioc:Adonis/Addons/GrpcConsumer'
 import { MyServiceClient } from 'proto/my_service/MyService'
-import { ServiceError } from '@grpc/grpc-js'
 
 const client = GrpcConsumer.getClient<MyServiceClient>('MY_SERVICE')
-client.SendMessage({ message: 'hello !' }, (error?: ServiceError) => {
+client.SendMessage({ message: 'hello !' }, (error?: grpc.ServiceError) => {
     if (error) {
       console.error(error.message)
     }
