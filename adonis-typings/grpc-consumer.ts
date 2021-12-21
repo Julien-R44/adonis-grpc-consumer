@@ -22,4 +22,7 @@ declare module '@ioc:Adonis/Addons/GrpcConsumer' {
     clients: GrpcClientConfig[]
     verbose: boolean
   }
+
+  const GrpcConsumer: GrpcConsumerBaseContract
+  export default GrpcConsumer
 }
