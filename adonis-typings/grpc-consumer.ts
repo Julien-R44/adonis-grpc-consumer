@@ -2,6 +2,8 @@ declare module '@ioc:Adonis/Addons/GrpcConsumer' {
   import { Options } from '@grpc/proto-loader'
   import { Client } from '@grpc/grpc-js'
 
+  export * as grpc from '@grpc/grpc-js'
+
   export interface GrpcConsumerBaseContract {
     getClient<T extends Client>(name: string): T | undefined
     closeAll(): Promise<void>
