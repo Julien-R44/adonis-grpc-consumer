@@ -1,5 +1,5 @@
 {
-  "name": "adonis5-grpc-consumer",
+  "name": "adonis-grpc-consumer",
   "version": "0.0.1",
   "description": "Adonis gRPC client provider for easily communicate with gRPC services",
   "main": "build/providers/GrpcConsumerProvider.js",
@@ -15,9 +15,10 @@
     "lint": "eslint . --ext=.ts",
     "pretest": "npm run lint",
     "test": "node .bin/test.js",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" build",
     "clean": "del build",
     "compile": "npm run lint && npm run clean && tsc",
-    "build": "npm run compile",
+    "build": "npm run compile && npm run copyfiles",
     "prepublishOnly": "npm run build",
     "format": "prettier --write ."
   },
@@ -36,11 +37,16 @@
     "url": "https://github.com/Julien-R44/adonis-grpc-consumer/issues"
   },
   "homepage": "https://github.com/Julien-R44/adonis-grpc-consumer#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.4.5",
+    "@grpc/proto-loader": "^0.6.7"
+  },
   "devDependencies": {
     "@adonisjs/core": "^5.4.2",
     "@adonisjs/mrm-preset": "^5.0.2",
     "@adonisjs/require-ts": "^2.0.8",
     "@types/node": "^17.0.2",
+    "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
@@ -81,8 +87,15 @@
     "arrowParens": "always",
     "printWidth": 100
   },
-  "dependencies": {
-    "@grpc/grpc-js": "^1.4.5",
-    "@grpc/proto-loader": "^0.6.7"
+  "adonisjs": {
+    "types": "adonis-grpc-consumer",
+    "providers": [
+      "adonis-grpc-consumer"
+    ],
+    "templates": {
+      "config": [
+        "grpc-consumer.txt"
+      ]
+    }
   }
 }
