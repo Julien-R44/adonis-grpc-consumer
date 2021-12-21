@@ -1,6 +1,6 @@
 {
   "name": "adonis-grpc-consumer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adonis gRPC client provider for easily communicate with gRPC services",
   "main": "build/providers/GrpcConsumerProvider.js",
   "typings": "./build/adonis-typings/index.d.ts",
