@@ -14,7 +14,7 @@
 
 ```
 npm i adonis-grpc-consumer
-node ace configure adonis5-prometheus
+node ace configure adonis-grpc-consumer
 ```
 
 ## Usage Example
