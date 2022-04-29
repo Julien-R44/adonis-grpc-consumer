@@ -89,7 +89,7 @@
   },
   "scripts": {
     "build": "npm run compile && npm run copyfiles",
-    "clean": "del build",
+    "clean": "del-cli build",
     "compile": "npm run lint && npm run clean && tsc",
     "copyfiles": "copyfiles \"templates/**/*.txt\" build",
     "format": "prettier --write .",
