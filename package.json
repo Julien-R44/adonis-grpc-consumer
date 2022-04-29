@@ -102,5 +102,5 @@
     "test": "node .bin/test.js"
   },
   "typings": "./build/adonis-typings/index.d.ts",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
