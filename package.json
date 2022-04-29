@@ -27,6 +27,7 @@
     "@adonisjs/mrm-preset": "^5.0.3",
     "@adonisjs/require-ts": "^2.0.11",
     "@types/node": "^17.0.30",
+    "bumpp": "^7.1.1",
     "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
     "eslint": "^8.14.0",
@@ -97,6 +98,7 @@
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "prepublishOnly": "npm run build",
     "pretest": "npm run lint",
+    "release": "bumpp --commit --push --tag && pnpm publish",
     "test": "node .bin/test.js"
   },
   "typings": "./build/adonis-typings/index.d.ts",
