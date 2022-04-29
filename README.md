@@ -38,9 +38,9 @@ message SendMessageRequest {
 
 Now you have to generate the type definitions for typescript. To do this, run :
 ```
-npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./proto/ ./proto/*.proto
+npx build-proto --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./proto/ ./proto/*.proto
 ```
-`proto-loader-gen-types` is a executable from `@grpc/proto-loader` package that is embedded in `adonis-grpc-consumer`.
+`build-proto` is an executable from `@grpc/proto-loader` package ( `proto-loader-gen-types` ) that is embedded in `adonis-grpc-consumer`.
 
 If everything went well, in my-app/proto/ you should find your TS definition files next to your .proto file.
 
