@@ -1,64 +1,42 @@
 {
-  "name": "adonis-grpc-consumer",
-  "version": "0.1.1",
-  "description": "Adonis gRPC client provider for easily communicate with gRPC services",
-  "main": "build/providers/GrpcConsumerProvider.js",
-  "typings": "./build/adonis-typings/index.d.ts",
+  "adonisjs": {
+    "providers": [
+      "adonis-grpc-consumer"
+    ],
+    "templates": {
+      "config": [
+        "grpc-consumer.txt"
+      ]
+    },
+    "types": "adonis-grpc-consumer"
+  },
+  "author": "Julien Ripouteau <julien@ripouteau.com>",
   "bin": {
     "build-proto": "./node_modules/@grpc/proto-loader/build/bin/proto-loader-gen-types.js"
   },
-  "files": [
-    "build/adonis-typings",
-    "build/providers",
-    "build/src",
-    "build/templates"
-  ],
-  "scripts": {
-    "mrm": "mrm --preset=@adonisjs/mrm-preset",
-    "lint": "eslint . --ext=.ts",
-    "pretest": "npm run lint",
-    "test": "node .bin/test.js",
-    "copyfiles": "copyfiles \"templates/**/*.txt\" build",
-    "clean": "del build",
-    "compile": "npm run lint && npm run clean && tsc",
-    "build": "npm run compile && npm run copyfiles",
-    "prepublishOnly": "npm run build",
-    "format": "prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Julien-R44/adonis-grpc-consumer.git"
-  },
-  "keywords": [
-    "adonis5",
-    "adonisjs",
-    "grpc"
-  ],
-  "author": "Julien Ripouteau <julien@ripouteau.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Julien-R44/adonis-grpc-consumer/issues"
   },
-  "homepage": "https://github.com/Julien-R44/adonis-grpc-consumer#readme",
   "dependencies": {
-    "@grpc/grpc-js": "^1.4.5",
-    "@grpc/proto-loader": "^0.6.7"
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.9"
   },
+  "description": "Adonis gRPC client provider for easily communicate with gRPC services",
   "devDependencies": {
-    "@adonisjs/core": "^5.4.2",
-    "@adonisjs/mrm-preset": "^5.0.2",
-    "@adonisjs/require-ts": "^2.0.8",
-    "@types/node": "^17.0.2",
+    "@adonisjs/core": "^5.7.5",
+    "@adonisjs/mrm-preset": "^5.0.3",
+    "@adonisjs/require-ts": "^2.0.11",
+    "@types/node": "^17.0.30",
     "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^2.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "japa": "^4.0.0",
     "mrm": "^3.0.10",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   },
   "eslintConfig": {
     "extends": [
@@ -80,25 +58,47 @@
   "eslintIgnore": [
     "build"
   ],
+  "files": [
+    "build/adonis-typings",
+    "build/providers",
+    "build/src",
+    "build/templates"
+  ],
+  "homepage": "https://github.com/Julien-R44/adonis-grpc-consumer#readme",
+  "keywords": [
+    "adonis5",
+    "adonisjs",
+    "grpc"
+  ],
+  "license": "MIT",
+  "main": "build/providers/GrpcConsumerProvider.js",
+  "name": "adonis-grpc-consumer",
   "prettier": {
-    "trailingComma": "es5",
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "quoteProps": "consistent",
     "semi": false,
     "singleQuote": true,
-    "useTabs": false,
-    "quoteProps": "consistent",
-    "bracketSpacing": true,
-    "arrowParens": "always",
-    "printWidth": 100
+    "trailingComma": "es5",
+    "useTabs": false
   },
-  "adonisjs": {
-    "types": "adonis-grpc-consumer",
-    "providers": [
-      "adonis-grpc-consumer"
-    ],
-    "templates": {
-      "config": [
-        "grpc-consumer.txt"
-      ]
-    }
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julien-R44/adonis-grpc-consumer.git"
+  },
+  "scripts": {
+    "build": "npm run compile && npm run copyfiles",
+    "clean": "del build",
+    "compile": "npm run lint && npm run clean && tsc",
+    "copyfiles": "copyfiles \"templates/**/*.txt\" build",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext=.ts",
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run lint",
+    "test": "node .bin/test.js"
+  },
+  "typings": "./build/adonis-typings/index.d.ts",
+  "version": "0.1.1"
 }
