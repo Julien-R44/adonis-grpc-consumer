@@ -39,7 +39,11 @@ export class GrpcConsumer implements GrpcConsumerBaseContract {
      */
     const packageDefinition = await load(protoPath, config.options.packageDefinitionOptions)
     const proto = loadPackageDefinition(packageDefinition)
-    const client = new proto[config.options.package][config.options.serviceName](
+
+    const client = this.createClient(
+      proto,
+      config.options.package,
+      config.options.serviceName,
       url,
       credentials.createInsecure()
     )
@@ -65,6 +69,43 @@ export class GrpcConsumer implements GrpcConsumerBaseContract {
 
       this.clients.push({ client, config })
     })
+  }
+
+  /**
+   * Split the package name into an array if it's a nested package.
+   */
+  private getPackageName(packageName: string): string | string[] {
+    if (packageName.split('.').length > 1) {
+      return packageName.split('.')
+    } else {
+      return packageName
+    }
+  }
+
+  /**
+   *  Returns the services from the given package. Handle nested package
+   */
+  private getServices(proto: any, packageName: string | string[]): any {
+    if (packageName.length === 1) {
+      return proto[packageName[0]]
+    } else {
+      return this.getServices(proto[packageName[0]], packageName.slice(1))
+    }
+  }
+
+  /**
+   * Creates a gRPC client.
+   */
+  private createClient(
+    proto: any,
+    packageName: string,
+    serviceName: string,
+    url: string,
+    channelCredentials: grpc.ChannelCredentials
+  ): grpc.Client {
+    const name = this.getPackageName(packageName)
+    const services = this.getServices(proto, name)
+    return new services[serviceName](url, channelCredentials)
   }
 
   /**
